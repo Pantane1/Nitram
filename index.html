@@ -3,43 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitram</title>
+    <title>NITRAM · modern thoughts</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon (logo as icon) -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-size='48' text-anchor='middle' fill='%23ff4d4d' font-family='Arial, sans-serif' font-weight='bold'%3EN%3C/text%3E%3C/svg%3E">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Nitram</div>
-            <ul>
+    <!-- Canvas for background effect -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">NITRAM</span>
+                <span class="logo-dot"></span>
+            </div>
+            <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
-        </nav>
-    </header>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <section class="hero">
-            <h1>Welcome to Nitram</h1>
-            <p>Sharing thoughts, stories, and ideas.</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Welcome to</div>
+            <h1 class="glitch" data-text="NITRAM">NITRAM</h1>
+            <p class="hero-subtitle">Exploring ideas, sharing stories,<br>and documenting the journey.</p>
+            <div class="hero-cta">
+                <a href="blog.html" class="btn primary">Read Blog <i class="fas fa-arrow-right"></i></a>
+                <a href="about.html" class="btn secondary">About Me</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="mouse"></div>
+        </div>
+    </section>
 
-        <section class="featured-posts">
-            <h2>Latest Posts</h2>
+    <!-- Featured Posts -->
+    <section class="featured">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Latest</span>
+                <h2 class="section-title">Featured Writings</h2>
+            </div>
+            
             <div class="posts-grid">
-                <!-- Blog post preview will go here -->
-                <article class="post-preview">
-                    <h3><a href="posts/my-first-post.html">My First Blog Post</a></h3>
-                    <p class="date">March 26, 2025</p>
-                    <p>This is where your blog post preview text will appear. It gives readers a taste of what the post is about...</p>
-                    <a href="posts/my-first-post.html" class="read-more">Read More →</a>
+                <!-- Post 1 -->
+                <article class="post-card">
+                    <div class="post-card-inner">
+                        <div class="post-date">
+                            <i class="far fa-calendar"></i> Mar 26, 2025
+                        </div>
+                        <h3><a href="posts/first-post.html">The Art of Starting</a></h3>
+                        <p class="post-excerpt">Every journey begins with a single step. Here's how I'm embracing the beginning...</p>
+                        <div class="post-footer">
+                            <span class="post-tag">Personal</span>
+                            <a href="posts/first-post.html" class="read-more">Read <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="post-card">
+                    <div class="post-card-inner">
+                        <div class="post-date">
+                            <i class="far fa-calendar"></i> Mar 24, 2025
+                        </div>
+                        <h3><a href="posts/creative-coding.html">Creative Coding</a></h3>
+                        <p class="post-excerpt">Exploring the intersection of technology and creativity through code and design...</p>
+                        <div class="post-footer">
+                            <span class="post-tag">Tech</span>
+                            <a href="posts/creative-coding.html" class="read-more">Read <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="post-card">
+                    <div class="post-card-inner">
+                        <div class="post-date">
+                            <i class="far fa-calendar"></i> Mar 20, 2025
+                        </div>
+                        <h3><a href="posts/minimalism.html">Digital Minimalism</a></h3>
+                        <p class="post-excerpt">Finding focus in a noisy world - my approach to intentional technology use...</p>
+                        <div class="post-footer">
+                            <span class="post-tag">Lifestyle</span>
+                            <a href="posts/minimalism.html" class="read-more">Read <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </article>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Get new posts delivered straight to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Nitram. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">NITRAM</div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NITRAM. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

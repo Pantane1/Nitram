@@ -3,38 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Posts - [Your Blog Name]</title>
+    <title>Blog · NITRAM</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-size='48' text-anchor='middle' fill='%23ff4d4d' font-family='Arial, sans-serif' font-weight='bold'%3EN%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">[Your Blog Name]</div>
-            <ul>
+    <canvas id="bgCanvas"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">NITRAM</span>
+                <span class="logo-dot"></span>
+            </div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <main>
-        <h1>All Blog Posts</h1>
-        
-        <div class="posts-list">
-            <article class="post-preview">
-                <h3><a href="posts/my-first-post.html">My First Blog Post</a></h3>
-                <p class="date">March 26, 2025</p>
-                <p>This is my very first blog post! I'm excited to start sharing my thoughts with the world...</p>
-                <a href="posts/my-first-post.html" class="read-more">Read More →</a>
-            </article>
-            
-            <!-- Add more posts here -->
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
         </div>
-    </main>
+    </nav>
 
-    <footer>
-        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    <main style="padding-top: 100px;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">All Writings</span>
+                <h1 class="section-title">Blog Archive</h1>
+            </div>
+
+            <div class="posts-grid">
+                <!-- Blog Post 1 -->
+                <article class="post-card">
+                    <div class="post-card-inner">
+                        <div class="post-date">
+                            <i class="far fa-calendar"></i> Mar 26, 2025
+                        </div>
+                        <h3><a href="posts/first-post.html">The Art of Starting</a></h3>
+                        <p class="post-excerpt">Every journey begins with a single step. Here's how I'm embracing the beginning and why starting is often the hardest part...</p>
+                        <div class="post-footer">
+                            <span class="post-tag">Personal</span>
+                            <span class="post-tag">Life</span>
+                            <a href="posts/first-post.html" class="read-more">Read <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="post-card">
+                    <div class="post-card-inner">
+                        <div class="post-date">
+                            <i class="far fa-calendar"></i> Mar 24, 2025
+                        </div>
+                        <h3><a href="posts/creative-coding.html">Creative Coding: Where Art Meets Logic</a></h3>
+                        <p class="post-excerpt">Exploring the intersection of technology and creativity through code, algorithms, and generative art. How programming became my new creative outlet...</p>
+                        <div class="post-footer">
+                            <span class="post-tag">Tech</span>
+                            <span class="post-tag">Coding</span>
+                            <a href="posts/creative-coding.html" class="read-more">Read <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="post-card">
+                    <div class="post-card-inner">
+                        <div class="post-date">
+                            <i class="far fa-calendar"></i> Mar 20, 2025
+                        </div>
+                        <h3><a href="posts/minimalism.html">Digital Minimalism: Finding Focus</a></h3>
+                        <p class="post-excerpt">Finding focus in a noisy world - my journey toward intentional technology use and how reducing digital clutter changed my life...</p>
+                        <div class="post-footer">
+                            <span class="post-tag">Lifestyle</span>
+                            <span class="post-tag">Minimalism</span>
+                            <a href="posts/minimalism.html" class="read-more">Read <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="post-card">
+                    <div class="post-card-inner">
+                        <div class="post-date">
+                            <i class="far fa-calendar"></i> Mar 15, 2025
+                        </div>
+                        <h3><a href="posts/morning-routine.html">The Perfect Morning Routine</a></h3>
+                        <p class="post-excerpt">After years of trial and error, I've finally found a morning routine that sets me up for success. Here's what works and what doesn't...</p>
+                        <div class="post-footer">
+                            <span class="post-tag">Productivity</span>
+                            <span class="post-tag">Health</span>
+                            <a href="posts/morning-routine.html" class="read-more">Read <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>

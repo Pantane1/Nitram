@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks! · NITRAM</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-size='48' text-anchor='middle' fill='%23ff4d4d' font-family='Arial, sans-serif' font-weight='bold'%3EN%3C/text%3E%3C/svg%3E">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Additional styles just for thanks page */
+        .thank-you {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thank-you-card {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            max-width: 600px;
+            width: 100%;
+            animation: slideUp 0.8s ease;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-check {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #ff4d4d, #ff8080);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.5s ease 0.3s both;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .success-check i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .thank-you h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #ff4d4d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .thank-you p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .email-icon {
+            display: inline-block;
+            margin: 1rem 0;
+            font-size: 2rem;
+            color: #ff4d4d;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .next-steps {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .next-steps h3 {
+            color: #ff4d4d;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .next-steps li {
+            margin: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .next-steps li i {
+            color: #ff4d4d;
+            width: 20px;
+        }
+        
+        .thank-you-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #ff4d4d;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-outline:hover {
+            background: #ff4d4d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 77, 77, 0.3);
+        }
+        
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: #ff4d4d;
+            opacity: 0.6;
+            animation: confettiFall 5s linear infinite;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100%) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+        
+        .quote-box {
+            margin: 2rem 0;
+            font-style: italic;
+            color: #888;
+            border-left: 3px solid #ff4d4d;
+            padding-left: 1.5rem;
+            text-align: left;
+        }
+        
+        .quote-author {
+            display: block;
+            margin-top: 0.5rem;
+            color: #ff4d4d;
+            font-style: normal;
+            font-size: 0.9rem;
+        }
+        
+        .social-share {
+            margin: 2rem 0 1rem;
+        }
+        
+        .social-share p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .share-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .share-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .share-link:hover {
+            background: #ff4d4d;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .thank-you h1 {
+                font-size: 2rem;
+            }
+            
+            .thank-you p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Canvas -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Confetti Animation -->
+    <div class="confetti" id="confetti"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">NITRAM</span>
+                <span class="logo-dot"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Thank You Content -->
+    <section class="thank-you">
+        <div class="thank-you-card">
+            <div class="success-check">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <div class="email-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            
+            <h1>You're In! 🎉</h1>
+            
+            <p>Thanks for joining the NITRAM newsletter. You're now part of a community of curious minds who never miss a post.</p>
+            
+            <div class="quote-box">
+                "The first step is always the hardest, but you've just taken it. Welcome aboard!"
+                <span class="quote-author">— Nitram</span>
+            </div>
+            
+            <div class="next-steps">
+                <h3><i class="fas fa-clock"></i> What's Next?</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span><strong>Check your inbox</strong> - I just sent you a confirmation email</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>Confirm your subscription</strong> - Click the link in the email</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-bell"></i>
+                        <span><strong>Stay tuned</strong> - New posts arrive straight to your inbox</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="social-share">
+                <p>Share the love? 🤗</p>
+                <div class="share-links">
+                    <a href="#" class="share-link" onclick="window.open('https://twitter.com/intent/tweet?text=Just%20subscribed%20to%20%40NITRAM%27s%20blog%20-%20can%27t%20wait%20for%20the%20insights!%20🚀&url=' + window.location.origin, '_blank')">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="share-link" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + window.location.origin, '_blank')">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="share-link" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.origin, '_blank')">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="share-link" onclick="window.open('mailto:?subject=Check%20out%20this%20blog&body=I%20just%20subscribed%20to%20NITRAM%27s%20blog%20-%20you%20should%20too!%20' + window.location.origin, '_blank')">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="thank-you-buttons">
+                <a href="index.html" class="btn primary">
+                    <i class="fas fa-home"></i> Back Home
+                </a>
+                <a href="blog.html" class="btn-outline">
+                    <i class="fas fa-book-open"></i> Read Blog
+                </a>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
+                <i class="fas fa-shield-alt"></i> No spam, ever. Unsubscribe anytime.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">NITRAM</div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NITRAM. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <script>
+        // Confetti effect
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            const colors = ['#ff4d4d', '#ff8080', '#ffb3b3', '#ffffff', '#ff3333'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti-piece');
+                    
+                    // Random properties
+                    const left = Math.random() * 100;
+                    const width = Math.random() * 10 + 5;
+                    const height = Math.random() * 20 + 10;
+                    const bgColor = colors[Math.floor(Math.random() * colors.length)];
+                    const delay = Math.random() * 3;
+                    const duration = Math.random() * 3 + 3;
+                    
+                    confetti.style.left = left + '%';
+                    confetti.style.width = width + 'px';
+                    confetti.style.height = height + 'px';
+                    confetti.style.background = bgColor;
+                    confetti.style.animationDelay = delay + 's';
+                    confetti.style.animationDuration = duration + 's';
+                    
+                    confettiContainer.appendChild(confetti);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, duration * 1000);
+                }, i * 100);
+            }
+        }
+        
+        // Run confetti on page load
+        window.addEventListener('load', () => {
+            createConfetti();
+            // Repeat every few seconds
+            setInterval(createConfetti, 4000);
+        });
+        
+        // Add to browser history so user doesn't come back to a blank form
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+    
+    <style>
+        /* Override to ensure thank you page looks perfect */
+        body {
+            background: var(--bg-primary);
+        }
+        
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+        }
+        
+        footer {
+            margin-top: 0;
+        }
+    </style>
+</body>
+</html>
